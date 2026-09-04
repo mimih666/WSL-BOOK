@@ -17,12 +17,14 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.List
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Person
+import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -108,8 +110,8 @@ fun BibliotecaScreen(modifier: Modifier = Modifier) {
         ) {
 
             Text(
-                text = "◀️",
-                color = Color(0xFFFFF8E7),
+                text = "◀",
+                color = Color.White,
                 fontSize = 40.sp
             )
 
@@ -139,8 +141,8 @@ fun BibliotecaScreen(modifier: Modifier = Modifier) {
 
 
             Text(
-                text = "▶️",
-                color = Color(0xFFFFF8E7),
+                text = "▶",
+                color = Color.White,
                 fontSize = 40.sp
             )
         }
@@ -154,22 +156,32 @@ fun BibliotecaScreen(modifier: Modifier = Modifier) {
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(55.dp)
+                .height(50.dp)
                 .border(
                     width = 1.dp,
                     color = Color.White,
-                    shape = RoundedCornerShape(30.dp)
+                    shape = RoundedCornerShape(25.dp)
                 ),
             contentAlignment = Alignment.CenterStart
         ) {
-
-            Text(
-                text = "🔍 Pesquisar livros...",
-                modifier = Modifier.padding(start = 15.dp),
-                color = Color(0xFFFFF8E7),
-                fontSize = 22.sp,
-                fontWeight = FontWeight.Bold
-            )
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier.padding(start = 15.dp)
+            ) {
+                Icon(
+                    imageVector = Icons.Default.Search,
+                    contentDescription = null,
+                    tint = Color.White,
+                    modifier = Modifier.size(24.dp)
+                )
+                Spacer(modifier = Modifier.width(10.dp))
+                Text(
+                    text = "Pesquisar livros...",
+                    color = Color(0xFFFFF8E7),
+                    fontSize = 18.sp,
+                    fontWeight = FontWeight.Bold
+                )
+            }
         }
 
 
@@ -237,28 +249,28 @@ fun BibliotecaScreen(modifier: Modifier = Modifier) {
             verticalAlignment = Alignment.CenterVertically
         ) {
 
-            
+
             Icon(
                 Icons.Default.Menu,
                 contentDescription = "Leitura",
                 tint = Color.White
             )
 
-            
+
             Icon(
                 Icons.Default.Home,
                 contentDescription = "Início",
                 tint = Color.White
             )
 
-            
+
             Icon(
                 Icons.AutoMirrored.Filled.List,
                 contentDescription = "Biblioteca",
                 tint = Color(0xFFB03A3A)
             )
 
-            
+
             Icon(
                 Icons.Default.Person,
                 contentDescription = "Perfil",
@@ -281,7 +293,7 @@ fun Livro(status: String) {
         Image(
             painter = painterResource(R.drawable.capa),
             contentDescription = "Capa do livro",
-            modifier = Modifier.size(100.dp, 150.dp),
+            modifier = Modifier.size(90.dp, 135.dp),
             contentScale = ContentScale.Crop
         )
 
