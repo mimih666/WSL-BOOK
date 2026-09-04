@@ -55,7 +55,7 @@ fun TelaPerfil() {
                 .statusBarsPadding()
         ) {
 
-          
+
             Column(
                 modifier = Modifier
                     .weight(1f)
@@ -63,7 +63,7 @@ fun TelaPerfil() {
                     .padding(horizontal = 12.dp, vertical = 8.dp)
             ) {
 
-              
+
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.End
@@ -78,7 +78,7 @@ fun TelaPerfil() {
 
                 Spacer(modifier = Modifier.height(8.dp))
 
-                
+
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     verticalAlignment = Alignment.CenterVertically
@@ -99,7 +99,7 @@ fun TelaPerfil() {
 
                     Box(
                         modifier = Modifier
-                            .size(74.dp) 
+                            .size(74.dp)
                             .clip(CircleShape)
                             .background(Color(0xFFB03A3A)),
                         contentAlignment = Alignment.Center
@@ -115,7 +115,7 @@ fun TelaPerfil() {
 
                 Spacer(modifier = Modifier.height(8.dp))
 
-        
+
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Icon(
                         imageVector = Icons.Default.LocationOn,
@@ -129,7 +129,7 @@ fun TelaPerfil() {
 
                 Spacer(modifier = Modifier.height(8.dp))
 
-             
+
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     verticalAlignment = Alignment.CenterVertically
@@ -150,7 +150,7 @@ fun TelaPerfil() {
                         onClick = { },
                         colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFB03A3A)),
                         shape = RoundedCornerShape(18.dp),
-                        contentPadding = PaddingValues(horizontal = 18.dp, vertical = 8.dp) 
+                        contentPadding = PaddingValues(horizontal = 18.dp, vertical = 8.dp)
                     ) {
                         Text(text = "Seguir", color = Color.White, fontWeight = FontWeight.Bold, fontSize = 13.sp)
                     }
@@ -158,7 +158,7 @@ fun TelaPerfil() {
 
                 Spacer(modifier = Modifier.height(12.dp))
 
-             
+
                 Column(
                     modifier = Modifier
                         .fillMaxWidth()
@@ -189,7 +189,7 @@ fun TelaPerfil() {
 
                 Spacer(modifier = Modifier.height(10.dp))
 
-             
+
                 Text(text = "Meta de leitura 2026", color = Color.White, fontWeight = FontWeight.Bold, fontSize = 13.sp)
                 Text(text = "18 / 30 livros", color = Color.Gray, fontSize = 11.sp)
 
@@ -204,7 +204,7 @@ fun TelaPerfil() {
                 }
             }
 
-            
+
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -225,9 +225,9 @@ fun TelaPerfil() {
 fun BookItem(titulo: String, nota: String, modifier: Modifier = Modifier) {
     Column(modifier = modifier) {
         Image(
-            painter = painterResource(id = R.drawable.flor),
+            painter = painterResource(id = R.drawable.capa),
             contentDescription = "Capa do livro $titulo",
-            contentScale = ContentScale.Fit, 
+            contentScale = ContentScale.Fit,
             modifier = Modifier
                 .fillMaxWidth()
                 .aspectRatio(3f / 4f)
