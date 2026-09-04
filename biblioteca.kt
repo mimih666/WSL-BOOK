@@ -19,8 +19,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.List
 import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.List
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material3.Icon
@@ -36,7 +36,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.wslbook.ui.theme.WSLBookTheme
+import com.example.wslbook.ui.theme.WSLBOOKTheme
 
 
 class MainActivity : ComponentActivity() {
@@ -47,7 +47,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
 
         setContent {
-            WSLBookTheme {
+            WSLBOOKTheme {
 
                 Scaffold(
                     modifier = Modifier.fillMaxSize()
@@ -73,7 +73,6 @@ fun BibliotecaScreen(modifier: Modifier = Modifier) {
             .padding(20.dp)
     ) {
 
-        // TÍTULO
 
         Text(
             text = "Biblioteca",
@@ -88,8 +87,6 @@ fun BibliotecaScreen(modifier: Modifier = Modifier) {
         )
 
 
-        // ÚLTIMAS LEITURAS
-
         Text(
             text = "Últimas leituras",
             modifier = Modifier.fillMaxWidth(),
@@ -103,9 +100,6 @@ fun BibliotecaScreen(modifier: Modifier = Modifier) {
         Spacer(
             modifier = Modifier.height(18.dp)
         )
-
-
-        // LIVROS RECENTES
 
         Row(
             modifier = Modifier.fillMaxWidth(),
@@ -157,8 +151,6 @@ fun BibliotecaScreen(modifier: Modifier = Modifier) {
         )
 
 
-        // BARRA DE PESQUISA
-
         Box(
             modifier = Modifier
                 .fillMaxWidth()
@@ -186,7 +178,6 @@ fun BibliotecaScreen(modifier: Modifier = Modifier) {
         )
 
 
-        // PRIMEIRA LINHA DE LIVROS
 
         Row(
             modifier = Modifier.fillMaxWidth(),
@@ -212,7 +203,6 @@ fun BibliotecaScreen(modifier: Modifier = Modifier) {
         )
 
 
-        // SEGUNDA LINHA DE LIVROS
 
         Row(
             modifier = Modifier.fillMaxWidth(),
@@ -238,7 +228,6 @@ fun BibliotecaScreen(modifier: Modifier = Modifier) {
         )
 
 
-        // MENU INFERIOR
 
         Row(
             modifier = Modifier
@@ -248,39 +237,39 @@ fun BibliotecaScreen(modifier: Modifier = Modifier) {
             verticalAlignment = Alignment.CenterVertically
         ) {
 
-            // 1º - Leitura
+            
             Icon(
                 Icons.Default.Menu,
                 contentDescription = "Leitura",
                 tint = Color.White
             )
 
-            // 2º - Início
+            
             Icon(
                 Icons.Default.Home,
                 contentDescription = "Início",
                 tint = Color.White
             )
 
-            // 3º - Biblioteca 🔴
+            
             Icon(
-                Icons.Default.List,
+                Icons.AutoMirrored.Filled.List,
                 contentDescription = "Biblioteca",
                 tint = Color(0xFFB03A3A)
             )
 
-            // 4º - Perfil
+            
             Icon(
                 Icons.Default.Person,
                 contentDescription = "Perfil",
                 tint = Color.White
             )
-        }Vai
+        }
     }
 }
 
 
-// FUNÇÃO DOS LIVROS
+
 
 @Composable
 fun Livro(status: String) {
