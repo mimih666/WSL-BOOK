@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -24,8 +25,8 @@ import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.List
 import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.List
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Icon
@@ -47,7 +48,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.wslbook.ui.theme.WSLBookTheme
+import com.example.wslbook.ui.theme.WSLBOOKTheme
 
 
 class MainActivity : ComponentActivity() {
@@ -58,7 +59,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
 
         setContent {
-            WSLBookTheme {
+            WSLBOOKTheme {
                 TelaBiblioteca()
             }
         }
@@ -225,7 +226,7 @@ fun TelaBiblioteca() {
             ) {
 
                 Icon(
-                    imageVector = Icons.Filled.List,
+                    imageVector = Icons.AutoMirrored.Filled.List,
                     contentDescription = "Filtros",
                     tint = Color(0xFFD9364F),
                     modifier = Modifier.size(34.dp)
@@ -301,8 +302,12 @@ fun TelaBiblioteca() {
 
                             CapaDoLivro(
                                 livro = livro,
-                                largura = 78.dp,
-                                altura = 117.dp
+                                largura = null,
+                                altura = null,
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(horizontal = 4.dp)
+                                    .aspectRatio(2f / 3f)
                             )
                         }
                     }
@@ -316,9 +321,15 @@ fun TelaBiblioteca() {
 @Composable
 fun CapaDoLivro(
     livro: Livro,
-    largura: Dp,
-    altura: Dp
+    largura: Dp?,
+    altura: Dp?,
+    modifier: Modifier = Modifier
 ) {
+    val sizeModifier = if (largura != null && altura != null) {
+        Modifier.size(largura, altura)
+    } else {
+        Modifier
+    }
 
     Image(
         painter = painterResource(
@@ -327,11 +338,10 @@ fun CapaDoLivro(
 
         contentDescription = livro.titulo,
 
-        contentScale = ContentScale.Fit,
+        contentScale = ContentScale.Crop,
 
-        modifier = Modifier
-            .width(largura)
-            .height(altura)
+        modifier = modifier
+            .then(sizeModifier)
             .clip(
                 RoundedCornerShape(6.dp)
             )
@@ -389,7 +399,7 @@ fun BarraDeNavegacao() {
             icon = {
 
                 Icon(
-                    imageVector = Icons.Filled.List,
+                    imageVector = Icons.AutoMirrored.Filled.List,
                     contentDescription = "Leitura",
                     tint = Color(0xFFFFF8E7),
                     modifier = Modifier.size(30.dp)
@@ -405,7 +415,7 @@ fun BarraDeNavegacao() {
 
         NavigationBarItem(
 
-            selected = false,
+            selected = true,
 
             onClick = { },
 
@@ -414,28 +424,6 @@ fun BarraDeNavegacao() {
                 Icon(
                     imageVector = Icons.Filled.Home,
                     contentDescription = "Início",
-                    tint = Color(0xFFFFF8E7),
-                    modifier = Modifier.size(30.dp)
-                )
-            },
-
-            colors = NavigationBarItemDefaults.colors(
-                indicatorColor = Color.Transparent
-            )
-        )
-
-
-        NavigationBarItem(
-
-            selected = true,
-
-            onClick = { },
-
-            icon = {
-
-                Icon(
-                    imageVector = Icons.Filled.List,
-                    contentDescription = "Biblioteca",
                     tint = Color(0xFFD9364F),
                     modifier = Modifier.size(30.dp)
                 )
@@ -443,6 +431,28 @@ fun BarraDeNavegacao() {
 
             colors = NavigationBarItemDefaults.colors(
                 selectedIconColor = Color(0xFFD9364F),
+                indicatorColor = Color.Transparent
+            )
+        )
+
+
+        NavigationBarItem(
+
+            selected = false,
+
+            onClick = { },
+
+            icon = {
+
+                Icon(
+                    imageVector = Icons.AutoMirrored.Filled.List,
+                    contentDescription = "Biblioteca",
+                    tint = Color(0xFFFFF8E7),
+                    modifier = Modifier.size(30.dp)
+                )
+            },
+
+            colors = NavigationBarItemDefaults.colors(
                 indicatorColor = Color.Transparent
             )
         )
