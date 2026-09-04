@@ -52,7 +52,8 @@ class MainActivity : ComponentActivity() {
             WSLBOOKTheme {
 
                 Scaffold(
-                    modifier = Modifier.fillMaxSize()
+                    modifier = Modifier.fillMaxSize(),
+                    containerColor = Color(0xFF121212)
                 ) { paddingValues ->
 
                     BibliotecaScreen(
