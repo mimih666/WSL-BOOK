@@ -158,8 +158,8 @@ fun BibliotecaScreen(modifier: Modifier = Modifier) {
                 .fillMaxWidth()
                 .height(50.dp)
                 .border(
-                    width = 1.dp,
-                    color = Color.White,
+                    width = 2.dp,
+                    color = Color(0xFFD9364F),
                     shape = RoundedCornerShape(25.dp)
                 ),
             contentAlignment = Alignment.CenterStart
